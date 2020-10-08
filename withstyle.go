@@ -18,13 +18,13 @@ func WithStyles(styles ...styleFn) styleFn {
 	}
 }
 
-func Rgb(r, g, b int) func(string) string {
+func Rgb(r, g, b float64) func(string) string {
 	return func(str string) string {
 		return "\033[38;05;" + rgbToAnsi256(r, g, b) + "m" + str + reset
 	}
 }
 
-func BgRgb(r, g, b int) func(string) string {
+func BgRgb(r, g, b float64) func(string) string {
 	return func(str string) string {
 		return "\033[48;05;" + rgbToAnsi256(r, g, b) + "m" + str + reset
 	}
